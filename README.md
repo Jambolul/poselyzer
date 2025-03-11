@@ -20,7 +20,7 @@
 - ✅ **Arms Raised** – Hands must be above shoulders.
 - ✅ **Elbows Bent (~130°)** – Elbows must be slightly extended (not locked).
 - ✅ **Hold to Confirm** – Pose must be held for **a few frames** for validation.
-The idea is for the logic to be strict enough but not too strict for the poses to have
+- The idea is for the logic to be strict enough but not too strict for the poses to have
 a normal amount of leeway.
 
 ## **Clone the repository**
