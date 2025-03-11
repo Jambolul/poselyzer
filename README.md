@@ -6,7 +6,7 @@
 
 - **Real-time Pose Detection** – Uses **MoveNet** to track body keypoints.
 - **Skeleton Visualization** – Draws detected keypoints and body connections on-screen.
-- **Threshold-Based Accuracy** – Uses angle calculations for precise pose recognition.
+- **Threshold-Based Accuracy** – Uses trigonometry for precise pose recognition.
 
 ## **🛠️ How It Works**
 
@@ -20,6 +20,8 @@
 - ✅ **Arms Raised** – Hands must be above shoulders.
 - ✅ **Elbows Bent (~130°)** – Elbows must be slightly extended (not locked).
 - ✅ **Hold to Confirm** – Pose must be held for **a few frames** for validation.
+The idea is for the logic to be strict enough but not too strict for the poses to have
+a normal amount of leeway.
 
 ## **Clone the repository**
 
