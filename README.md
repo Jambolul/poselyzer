@@ -1,8 +1,38 @@
-# Tauri + React + Typescript
+# **Bodybuilding Pose Detector**
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+🚀 A **real-time bodybuilding pose detection app** using **MoveNet** and **Tauri**. This app detects specific bodybuilding poses, for example **Front Double Biceps**, by analyzing key joint positions and angles.
 
-## Recommended IDE Setup
+## **📌 Features**
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
-# tauri-labrat
+- **Real-time Pose Detection** – Uses **MoveNet** to track body keypoints.
+- **Skeleton Visualization** – Draws detected keypoints and body connections on-screen.
+- **Threshold-Based Accuracy** – Uses angle calculations for precise pose recognition.
+
+## **🛠️ How It Works**
+
+1. The app captures video from your **webcam**.
+2. **MoveNet** detects **17 body keypoints** in real-time.
+3. The app **analyzes joint angles** (e.g., shoulders, elbows, wrists).
+4. If the key conditions for **the pose** are met, the app **confirms the pose**.
+
+## **🎯 Pose Recognition Logic**
+
+- ✅ **Arms Raised** – Hands must be above shoulders.
+- ✅ **Elbows Bent (~130°)** – Elbows must be slightly extended (not locked).
+- ✅ **Hold to Confirm** – Pose must be held for **a few frames** for validation.
+
+## **Clone the repository**
+
+```sh
+git clone https://github.com/Jambolul/poselyzer.git
+
+cd bodybuilding-pose-detector
+```
+
+### **Install Dependencies and run the app**
+
+```sh
+npm install
+
+npm run tauri dev
+```
