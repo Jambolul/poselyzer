@@ -11,7 +11,7 @@ const getAngle = (A: { x: number, y: number }, B: { x: number, y: number }, C: {
   };
   
 
-export const poses = {
+  export const poses = {
     front_double_biceps: {
       name: "Front Double Biceps",
       keypoints: ["left_shoulder", "right_shoulder", "left_elbow", "right_elbow", "left_wrist", "right_wrist"],
@@ -23,15 +23,13 @@ export const poses = {
           return false;
         }
   
-        // ✅ Use correct elbow angle calculation
         const leftElbowAngle = getAngle(left_shoulder, left_elbow, left_wrist);
         const rightElbowAngle = getAngle(right_shoulder, right_elbow, right_wrist);
   
         console.log("📏 Left Elbow Angle:", leftElbowAngle);
         console.log("📏 Right Elbow Angle:", rightElbowAngle);
   
-        // Conditions for FDB Pose
-        const elbowsBentCorrectly = (leftElbowAngle > 110 && leftElbowAngle < 150)&&
+        const elbowsBentCorrectly = (leftElbowAngle > 110 && leftElbowAngle < 150) &&
                                     (rightElbowAngle > 110 && rightElbowAngle < 150);
         const wristsAboveShoulders = left_wrist.y < left_shoulder.y && right_wrist.y < right_shoulder.y;
   
@@ -39,6 +37,35 @@ export const poses = {
         console.log("✅ Wrists Above Shoulders:", wristsAboveShoulders);
   
         return elbowsBentCorrectly && wristsAboveShoulders;
+      }
+    },
+  
+    lat_spread: {
+      name: "Lat Spread",
+      keypoints: ["left_shoulder", "right_shoulder", "left_elbow", "right_elbow", "left_wrist", "right_wrist"],
+      conditions: (keypoints: { [key: string]: { x: number, y: number } }) => {
+        const { left_shoulder, right_shoulder, left_elbow, right_elbow, left_wrist, right_wrist } = keypoints;
+  
+        if (!left_shoulder || !right_shoulder || !left_elbow || !right_elbow || !left_wrist || !right_wrist) {
+          console.log("❌ Missing keypoints for Lat Spread!");
+          return false;
+        }
+  
+        const leftElbowAngle = getAngle(left_shoulder, left_elbow, left_wrist);
+        const rightElbowAngle = getAngle(right_shoulder, right_elbow, right_wrist);
+  
+        console.log("📏 Left Elbow Angle:", leftElbowAngle);
+        console.log("📏 Right Elbow Angle:", rightElbowAngle);
+  
+        const elbowsFlared = (leftElbowAngle > 85 && leftElbowAngle < 130) &&
+                             (rightElbowAngle > 85 && rightElbowAngle < 130);
+  
+        const wristsBelowShoulders = left_wrist.y >= left_shoulder.y && right_wrist.y >= right_shoulder.y;
+  
+        console.log("✅ Elbows Flared:", elbowsFlared);
+        console.log("✅ Wrists Below Shoulders:", wristsBelowShoulders);
+  
+        return elbowsFlared && wristsBelowShoulders;
       }
     }
   };
