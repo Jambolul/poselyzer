@@ -1,45 +1,18 @@
 import { Button } from '@/components/ui/button';
-import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router';
 
 const Home = () => {
-  const [result, setResult] = useState({ positives: 0, negatives: 0 });
-
-  useEffect(() => {
-    try {
-
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
-
-  const handleClearDatabase = () => {
-    try {
-      setResult({ positives: 0, negatives: 0 });
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
     <>
-      <h1 className="text-center p-4 text-lg">Home</h1>
+      <h1 className="text-center p-4 text-lg font-bold">🏋️ PoseLyzer</h1>
       <section className="text-center">
-
+        <p className="text-lg">Real-time bodybuilding pose analysis.</p>
       </section>
-      <section className="p-4">
-        <p>Results:</p>
 
-        <div>
-          <p>Positives: {result.positives}</p>
-          <p>Negatives: {result.negatives}</p>
-        </div>
-      </section>
-      <section className="p-8 flex justify-around">
-        <NavLink to={'/face'}>
-          <Button>Start Voting</Button>
+      <section className="p-8 flex justify-center">
+        <NavLink to={'/detect'}>
+          <Button className="text-xl p-4">Start Pose Detection</Button>
         </NavLink>
-        <Button onClick={handleClearDatabase}>Clear Database</Button>
       </section>
     </>
   );
