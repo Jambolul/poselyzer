@@ -52,7 +52,7 @@ const Camera = forwardRef<HTMLVideoElement, CameraProps>((props, ref) => {
       console.log("MoveNet model loaded!");
     };
 
-    const keypointConnections = [
+   /* const keypointConnections = [
       ["left_shoulder", "right_shoulder"],
       ["left_shoulder", "left_elbow"],
       ["left_elbow", "left_wrist"],
@@ -65,7 +65,7 @@ const Camera = forwardRef<HTMLVideoElement, CameraProps>((props, ref) => {
       ["right_knee", "right_ankle"],
       ["left_shoulder", "left_hip"],
       ["right_shoulder", "right_hip"]
-    ];
+    ];*/
     
 
     let poseFrames = 0; // Count how long the pose is held
