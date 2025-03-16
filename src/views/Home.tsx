@@ -9,11 +9,16 @@ const Home = () => {
         <p className="text-lg">Real-time bodybuilding pose analysis.</p>
       </section>
 
-      <section className="p-8 flex justify-center">
-        <NavLink to={'/detect'}>
-          <Button className="text-xl p-4">Start Pose Detection</Button>
-        </NavLink>
-      </section>
+      <section className="p-8 flex justify-around">
+  <NavLink to={'/DetectPose'}>
+    <Button className="text-xl p-4">Start Pose Detection</Button>
+  </NavLink>
+  <NavLink to={'/instructions'}>
+    <Button variant="secondary" className="text-xl p-4">📖 Instructions</Button>
+  </NavLink>
+</section>
+
+      
     </>
   );
 };

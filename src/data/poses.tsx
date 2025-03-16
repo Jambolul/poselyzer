@@ -26,15 +26,11 @@ const getAngle = (A: { x: number, y: number }, B: { x: number, y: number }, C: {
         const leftElbowAngle = getAngle(left_shoulder, left_elbow, left_wrist);
         const rightElbowAngle = getAngle(right_shoulder, right_elbow, right_wrist);
   
-       // console.log("📏 Left Elbow Angle:", leftElbowAngle);
-        //console.log("📏 Right Elbow Angle:", rightElbowAngle);
   
         const elbowsBentCorrectly = (leftElbowAngle > 120 && leftElbowAngle < 160) &&
                                     (rightElbowAngle > 120 && rightElbowAngle < 160);
         const wristsAboveShoulders = left_wrist.y < left_shoulder.y && right_wrist.y < right_shoulder.y;
   
-        console.log("✅ Elbows Bent:", elbowsBentCorrectly);
-        console.log("✅ Wrists Above Shoulders:", wristsAboveShoulders);
   
         return elbowsBentCorrectly && wristsAboveShoulders;
       }
@@ -54,16 +50,12 @@ const getAngle = (A: { x: number, y: number }, B: { x: number, y: number }, C: {
         const leftElbowAngle = getAngle(left_shoulder, left_elbow, left_wrist);
         const rightElbowAngle = getAngle(right_shoulder, right_elbow, right_wrist);
   
-        //console.log("📏 Left Elbow Angle:", leftElbowAngle);
-        //console.log("📏 Right Elbow Angle:", rightElbowAngle);
   
         const elbowsFlared = (leftElbowAngle > 85 && leftElbowAngle < 130) &&
                              (rightElbowAngle > 85 && rightElbowAngle < 130);
   
         const wristsBelowShoulders = left_wrist.y >= left_shoulder.y && right_wrist.y >= right_shoulder.y;
   
-        //console.log("✅ Elbows Flared:", elbowsFlared);
-        //console.log("✅ Wrists Below Shoulders:", wristsBelowShoulders);
   
         return elbowsFlared && wristsBelowShoulders;
       }
@@ -83,9 +75,6 @@ const getAngle = (A: { x: number, y: number }, B: { x: number, y: number }, C: {
       const leftElbowAngle = getAngle(left_shoulder, left_elbow, left_wrist);
       const rightElbowAngle = getAngle(right_shoulder, right_elbow, right_wrist);
 
-      console.log("📏 Left Elbow Angle:", leftElbowAngle);
-      console.log("📏 Right Elbow Angle:", rightElbowAngle);
-
       // One arm should be **fully extended** (~160-180°)
       const oneArmExtended = (leftElbowAngle > 40 && leftElbowAngle < 90) || 
                               (rightElbowAngle > 40 && rightElbowAngle < 90);
@@ -97,9 +86,6 @@ const getAngle = (A: { x: number, y: number }, B: { x: number, y: number }, C: {
       // At least one wrist should be above the shoulder level
       const wristsAboveShoulders = left_wrist.y < left_shoulder.y || right_wrist.y < right_shoulder.y;
 
-      console.log("✅ One Arm Extended:", oneArmExtended);
-      console.log("✅ One Arm Flexed:", oneArmFlexed);
-      console.log("✅ Wrists Above Shoulders:", wristsAboveShoulders);
 
       return oneArmExtended && oneArmFlexed && wristsAboveShoulders;
     }
